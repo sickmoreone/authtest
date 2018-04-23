@@ -1,0 +1,30 @@
+[ 2018-04-23T10:57:02+08:00 ] ::1 /authtest/index.php/Program/modpage/id/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000512s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T10:58:33+08:00 ] ::1 /authtest/index.php/Program/modpage/id/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T11:01:01+08:00 ] ::1 /authtest/index.php/Program/modpage/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T11:23:08+08:00 ] ::1 /authtest/index.php/Program/id/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T11:32:37+08:00 ] ::1 /authtest/index.php/Program/id/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000601s ]
+ERR: 无法加载模块:Program
+
