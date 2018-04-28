@@ -28,3 +28,75 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000601s ]
 ERR: 无法加载模块:Program
 
+[ 2018-04-23T15:53:20+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T15:55:31+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T15:59:27+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000432s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T15:59:41+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:06:04+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000428s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:06:48+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000564s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:09:45+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:10:04+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:18:50+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001157s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:20:13+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:21:01+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+ERR: 无法加载模块:Program
+
+[ 2018-04-23T16:25:12+08:00 ] ::1 /authtest/index.php/Program/programList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+ERR: 无法加载模块:Program
+

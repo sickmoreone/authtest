@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link href="__PUBLIC__/home/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/home/css/select.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.idTabs.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/select-ui.min.js"></script>
+    <script src="__ROOT__/library/layer/layer.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $(".select1").uedSelect({
+                width : 345
+            });
+            $(".select2").uedSelect({
+                width : 167
+            });
+            $(".select3").uedSelect({
+                width : 100
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">产品经理</a></li>
+        <li><a href="#">系统管理</a></li>
+    </ul>
+</div>
+
+<div class="formbody">
+
+
+    <div id="usual1" class="usual">
+
+        <div class="itab">
+            <ul>
+                <li><a href="#tab1" class="selected">型号关联</a></li>
+               <!-- <li><a href="#tab2">添加型号</a></li>-->
+            </ul>
+        </div>
+
+
+
+
+        <div id="tab1" class="tabson">
+
+            <div>
+                <select id="program" name="program" class="dfinput" style="opacity:1;">
+                    <option value="0">方案筛选</option>
+                    <volist name="program" id="v">
+                        <option value="{$v.id}">{$v.name}</option>
+                    </volist>
+                </select>
+                <input class="dfinput" name="keyword" value="" placeholder="请输入关键字"/>
+                <button  class="btn" type="submit">搜索</button>
+            </div>
+
+            <table class="tablelist">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>型号名称</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="wraps">
+
+                <volist name="model" id="v">
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td>{$v.name}</td>
+                        <td>{$v.remark}</td>
+                        <td class="operating">
+                            <a href="javascript:;" name='related' class="tablelink"  modurl="{:U('System/related',array('id'=>$v['id']))}">关联人员</a>
+                        </td>
+                    </tr>
+                </volist>
+
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+
+        <div id="tab2" class="tabson">
+
+
+
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $("#usual1 ul").idTabs();
+    </script>
+
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+    <script>
+        function objToArray(array) {
+            var arr = []
+            for (var i in array) {
+                arr.push(array[i]);
+            }
+            return arr;
+        }
+        /*
+         * 下拉框显示方案下模型
+         * */
+        $('#program').change(function () {
+            var programid=$('#program').val();
+            var str='';
+            $.post("{:U('System/models')}",{programid:programid},function(result){
+                $("#wraps").html(result);
+            });
+        });
+        /*
+         * 点击button显示方案下模型
+         * */
+        $(document).on('click',".btn",function(){
+            var programid=$('#program').val();
+            var keyword=$("input[name='keyword']").val();
+            if(programid==0 && keyword=='')
+            {
+                //默认全部
+            }
+            else if(programid==0 && keyword!='')
+            {
+                //方案没选，有关键字
+                $.post("{:U('System/showmodes')}",{programid:programid,keyword:keyword},function(result){
+                    $("#wraps").html(result);
+                });
+
+            }
+            else if(programid!=0 && keyword=='')
+            {
+                //组
+            }
+            else if(programid!=0 && keyword!='')
+            {
+                //方案选了，有关键字
+                $.post("{:U('System/showmodes')}",{programid:programid,keyword:keyword},function(result){
+                    $("#wraps").html(result);
+                });
+
+            }
+
+
+            //alert(programid);alert(keyword);
+
+        });
+    </script>
+
+
+    <script>
+        $("#groupid").change(function(){
+            var groupid=$(this).val();
+            $.post("{:U('Model/showpeople')}",{groupid:groupid},function(result){
+                $('#people').html(result);
+            });
+        });
+        //点击关联人员
+        $(document).on('click',"a[name='related']",function(){
+            var modurl = $(this).attr("modurl");
+            layer.open({
+                type: 2,
+                title: '关联人员',
+                maxmin: true,
+                scrollbar:false,
+                area: ['800px', '500px'],
+                content:[modurl,'no']
+
+            });
+        });
+    </script>
+
+    <script src="__ROOT__/library/bootstrap3.3.7/js/bootstrap.min.js"></script>
+
+</div>
+
+
+</body>
+
+</html>

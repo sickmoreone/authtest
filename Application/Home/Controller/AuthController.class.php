@@ -96,4 +96,21 @@ class AuthController extends CommonController{
 		$this->list=$list;
 		$this->display();
 	}
+
+	/*
+	 * 删除规则
+	 * */
+	public function delrule()
+    {
+        $auth_id=$_POST['auth_id'];
+        $result=M('auth_rule')->where("id=$auth_id")->delete();
+        if($result)
+        {
+            $this->ajaxReturn(1);
+        }
+        else
+        {
+            $this->ajaxReturn(2);
+        }
+    }
 }

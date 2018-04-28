@@ -9,11 +9,11 @@ namespace Home\Controller;
 use Think\Controller;
 class ProgramController extends CommonController {
     /*
-     * 方案列表显示页面可以跳到模型页
+     * 方案管理列表显示页面
      * */
     public function programList()
     {
-        $programList=M('program')->select();
+        $programList=M('program')->order('create_time desc')->select();
         $this->assign('programList',$programList);
         $this->display();
     }
@@ -97,4 +97,28 @@ class ProgramController extends CommonController {
         $this->assign('program',$result);
         $this->display();
     }
+
+    /*
+     * 确认修改方案
+     * */
+    public function suremod()
+    {
+        $id=$_POST['id'];
+        $remark=$_POST['remark'];
+        $name=$_POST['name'];
+        /*dump($_POST);*/
+        $result=M('program')->where("id=$id")->data(array('name'=>$name,'remark'=>$remark))->save();
+         if($result)
+        {
+
+            $this->ajaxReturn(1);//修改成功
+
+        }
+        else
+        {
+            $this->ajaxReturn(2);//失败或者无修改
+        }
+    }
+
+
 }

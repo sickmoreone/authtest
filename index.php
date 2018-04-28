@@ -23,6 +23,8 @@ define('APP_PATH','./Application/');
 //缓存位置
 define('RUNTIME_PATH','./Runtime/Admin/');
 
+
+define("BIND_MODULE","Home");
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';
 

@@ -74,7 +74,7 @@ $(document).ready(function(e) {
         <tr>
         <td><?php echo $v['name']?></td>
         <td><?php echo $v['title']?></td>
-        <td><a href="<?=U('',array('id'=>$v['id']))?>" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="<?=U('',array('id'=>$v['id']))?>" class="tablelink">修改</a>     <a href="#" class="tablelink" name="del" data-auth_id="<?php echo $v['id']?>"> 删除</a></td>
         </tr> 
         <?php }?>
         
@@ -97,7 +97,26 @@ $(document).ready(function(e) {
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
     
-    
+
+        <script type="text/javascript">
+            $("a[name='del']").click(function () {
+                var auth_id=$(this).data("auth_id");
+                if(confirm("是否删除该规则？"))
+                {
+                    $.post("{:U('Auth/delrule')}",{auth_id:auth_id},function(result){
+                        if(result==1)
+                        {
+                            alert('成功');
+                            window.location.href="__APP__/Auth/ruleadd.html#tab2";
+                        }
+                        else
+                        {
+                            alert('错误');
+                        }
+                    });
+                }
+            });
+        </script>
     
     
     

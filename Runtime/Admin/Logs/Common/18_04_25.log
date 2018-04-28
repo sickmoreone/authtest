@@ -1,0 +1,6 @@
+[ 2018-04-25T15:28:05+08:00 ] ::1 /authtest/index.php/Model/modpage/id/6
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+ERR: 无法加载模块:Model
+

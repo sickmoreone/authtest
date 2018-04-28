@@ -33,7 +33,7 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">产品经理</a></li>
-        <li><a href="#">方案管理</a></li>
+        <li><a href="#">应用管理</a></li>
     </ul>
 </div>
 
@@ -44,8 +44,7 @@
 
         <div class="itab">
             <ul>
-                <li><a href="#tab1" class="selected">方案列表</a></li>
-                <li><a href="#tab2">添加方案</a></li>
+                <li><a href="#tab1" class="selected">应用列表</a></li>
             </ul>
         </div>
 
@@ -54,24 +53,43 @@
 
         <div id="tab1" class="tabson">
 
+
+
+
+            <div>
+                <select id="selects" name="select" class="dfinput" style="opacity:1;">
+                    <option value="0">全部</option>
+                    <option value="1">未关联</option>
+                    <option value="2">已关联</option>
+                </select>
+                <input class="dfinput" name="keyword" id="keyword" value="" placeholder="请输入关键字"/>
+                <button  class="btn" type="submit" id="search">搜索</button>
+            </div>
+
             <table class="tablelist">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>名称</th>
+                    <th>应用名称</th>
                     <th>备注</th>
+                    <th>创建时间</th>
+                    <th>创建人</th>
+                    <th>已关联型号</th>
                     <th>操作</th>
                 </tr>
                 </thead>
-                <tbody>
-                <volist name="programList" id="v">
+                <tbody id="wraps">
+
+                <volist name="apks" id="v">
                     <tr>
                         <td>{$v.id}</td>
-                        <td>{$v.name}</td>
+                        <td><a href="__APP__/Apk/apkinfo/id/{$v.id}">{$v.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="__APP__/Apk/apkinfo/id/{$v.id}">查看应用信息</a></td>
                         <td>{$v.remark}</td>
+                        <td>{$v.create_time}</td>
+                        <td>{$v.nickname}</td>
+                        <td>{$v.model_name}</td>
                         <td class="operating">
-                            <a href="#" name='mod' class="tablelink"  modurl="{:U('Program/modpage',array('id'=>$v['id']))}">修改</a>
-                            <a href="#" name='del' class="tablelink" > 删除</a>
+                            <a href="javascript:;" name='related' class="tablelink"  modurl="{:U('Apk/related',array('id'=>$v['id']))}">关联型号</a>
                         </td>
                     </tr>
                 </volist>
@@ -92,13 +110,6 @@
         <div id="tab2" class="tabson">
 
 
-            <form action="{:U('addprogram')}" method="post">
-                <ul class="forminfo">
-                    <li><label>方案名<b>*</b></label><input name="name" value="" type="text" class="dfinput" placeholder="请填写方案名"  style="width:518px;" required="required"/></li>
-                    <li><label>备注<b></b></label><input name="remark" type="text" class="dfinput" placeholder="请填写备注"  style="width:518px;" required="required"/></li>
-                    <li><label></label><input type="submit" class="btn" value="添加"/></li>
-                </ul>
-            </form>
 
 
 
@@ -114,45 +125,42 @@
         $('.tablelist tbody tr:odd').addClass('odd');
     </script>
 
-    <script>
-        //点击修改方案
-        $("a[name='mod']").click(function () {
+    <script type="text/javascript">
+        //点击关联型号
+        $(document).on('click',"a[name='related']",function(){
+            /*var apkname=$(this).parent().parent().find("td").eq(1).children().find("a:first").text();*/
+            var apkname=$(this).parent().parent().find("td").eq(1).find('a:first').text();
             var modurl = $(this).attr("modurl");
             layer.open({
                 type: 2,
-                title: '修改方案',
+                title: '['+apkname+']===APK关联型号',
                 maxmin: true,
-                scrollbar:false,
                 area: ['800px', '500px'],
                 content:[modurl,'no']
 
             });
         });
-        //点击删除方案
-       $("a[name='del']").click(function () {
-            if(confirm('是否删除该方案？'))
-            {
-                //是
-                //获取要删除的id,parent().find("td:first").text();
-                var id=$(this).parent().parent().find("td:first").text();
-                $.post("{:U('Program/delList')}",{id:id},function(result){
-                    if(result==1)
-                    {
-                        alert('请先解除关联的型号再删除！');
-                    }
-                    else if(result==2)
-                    {
-                        alert('删除成功。');
-                        window.location.reload();
-                    }
-                    else {
-                        alert('系统错误！');
-                    }
-                });
-            }
 
+        //下拉搜索
+        $('#selects').change(function () {
+            var selects=$('#selects').val();
+            var keyword=$('#keyword').val();
+            $.post("{:U('Apk/pull')}",{selects:selects,keyword:keyword},function (result) {
+                $('#wraps').html(result);
+            });
+        });
+
+
+        //搜索
+        $(document).on('click',"#search",function(result){
+            var selects=$('#selects').val();
+            var keyword=$('#keyword').val();
+            $.post("{:U('Apk/search')}",{selects:selects,keyword:keyword},function (result) {
+                $('#wraps').html(result);
+            });
         });
     </script>
+
 
     <script src="__ROOT__/library/bootstrap3.3.7/js/bootstrap.min.js"></script>
 

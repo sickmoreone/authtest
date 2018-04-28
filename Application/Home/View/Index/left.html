@@ -35,32 +35,72 @@ $(function(){
     <dl class="leftmenu">
 
 
-    <dd>
-    <div class="title">
-    <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>权限
-    </div>
-    	<ul class="menuson">
-        <li <?php echo CONTROLLER_NAME=='Auth' && ACTION_NAME=='ruleadd' ? 'class="active"' : ''?>><cite></cite><a href="../Auth/ruleadd.html" target="rightFrame">规则</a><i></i></li>
-        <li <?php echo CONTROLLER_NAME=='Auth' && ACTION_NAME=='groupadd' ? 'class="active"' : ''?>><cite></cite><a href="../Auth/groupadd.html" target="rightFrame">权限组</a><i></i></li>
-		</ul>    
-    </dd>
-
-
-        <dd>
-    <div class="title">
-    <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>管理员
-    </div>
-    	<ul class="menuson">
-		<li <?php echo CONTROLLER_NAME=='Admin' && ACTION_NAME=='add' ? 'class="active"' : ''?>><cite></cite><a href="../Admin/add.html" target="rightFrame">管理员</a><i></i></li>
-		</ul>    
-    </dd>
 
         <dd>
             <div class="title">
-                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>方案
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>权限
+            </div>
+            <ul class="menuson">
+                <li <?php echo CONTROLLER_NAME=='Auth' && ACTION_NAME=='ruleadd' ? 'class="active"' : ''?>><cite></cite><a href="../Auth/ruleadd.html" target="rightFrame">规则</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='Auth' && ACTION_NAME=='groupadd' ? 'class="active"' : ''?>><cite></cite><a href="../Auth/groupadd.html" target="rightFrame">权限组</a><i></i></li>
+            </ul>
+        </dd>
+
+
+
+
+        <dd>
+            <div class="title">
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>管理员
+            </div>
+            <ul class="menuson">
+                <li <?php echo CONTROLLER_NAME=='Admin' && ACTION_NAME=='add' ? 'class="active"' : ''?>><cite></cite><a href="../Admin/add.html" target="rightFrame">管理员</a><i></i></li>
+            </ul>
+        </dd>
+
+
+
+        <dd>
+            <div class="title">
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>产品经理
             </div>
             <ul class="menuson">
                 <li <?php echo CONTROLLER_NAME=='Program' && ACTION_NAME=='programList' ? 'class="active"' : ''?>><cite></cite><a href="../Program/programList.html" target="rightFrame">方案管理</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='Model' && ACTION_NAME=='model' ? 'class="active"' : ''?>><cite></cite><a href="../Model/model.html" target="rightFrame">型号管理</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='System' && ACTION_NAME=='system' ? 'class="active"' : ''?>><cite></cite><a href="../System/system.html" target="rightFrame">系统管理</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='Apk' && ACTION_NAME=='apk' ? 'class="active"' : ''?>><cite></cite><a href="../Apk/apk.html" target="rightFrame">应用管理</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='Bug' && ACTION_NAME=='bug' ? 'class="active"' : ''?>><cite></cite><a href="../Bug/bug.html" target="rightFrame">BUG管理</a><i></i></li>
+            </ul>
+        </dd>
+
+        <dd>
+            <div class="title">
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>固件开发
+            </div>
+            <ul class="menuson">
+                <li <?php echo CONTROLLER_NAME=='' && ACTION_NAME=='' ? 'class="active"' : ''?>><cite></cite><a href="..//.html" target="rightFrame">系统</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='' && ACTION_NAME=='' ? 'class="active"' : ''?>><cite></cite><a href="..//.html" target="rightFrame">我的BUG</a><i></i></li>
+            </ul>
+        </dd>
+
+
+        <dd>
+            <div class="title">
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>测试
+            </div>
+            <ul class="menuson">
+                <li <?php echo CONTROLLER_NAME=='' && ACTION_NAME=='' ? 'class="active"' : ''?>><cite></cite><a href="..//.html" target="rightFrame">系统</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='' && ACTION_NAME=='' ? 'class="active"' : ''?>><cite></cite><a href="..//.html" target="rightFrame">BUG</a><i></i></li>
+            </ul>
+        </dd>
+
+        <dd>
+            <div class="title">
+                <span><img src="__PUBLIC__/home/images/leftico01.png" /></span>应用开发
+            </div>
+            <ul class="menuson">
+                <li <?php echo CONTROLLER_NAME=='Apper' && ACTION_NAME=='apper' ? 'class="active"' : ''?>><cite></cite><a href="../Apper/apper.html" target="rightFrame">应用</a><i></i></li>
+                <li <?php echo CONTROLLER_NAME=='Apper' && ACTION_NAME=='mybug' ? 'class="active"' : ''?>><cite></cite><a href="../Apper/mybug.html" target="rightFrame">我的BUG</a><i></i></li>
             </ul>
         </dd>
 

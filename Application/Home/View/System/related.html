@@ -1,0 +1,40 @@
+<style type="text/css">
+    li{
+        display:block;
+        float:left;
+        width:70%;
+        margin-right:8px;
+        white-space:normal;
+        word-break : break-all;
+        word-wrap: break-word;
+    }
+</style>
+
+<link href="__PUBLIC__/home/css/style.css" rel="stylesheet" type="text/css" />
+<form class="form-horizontal" action="{:U('System/surerelated')}" method="post">
+    <ul class="forminfo">
+        <li>
+            <label>关联组</label>
+            <select class="dfinput" name="groupid" id='groupid' style="opacity:1;">
+                <option value="0">单独选择</option>
+                <volist name="group" id="v">
+                    <option value="{$v.id}">{$v.title}</option>
+                </volist>
+            </select>
+        </li>
+        <li id="people">{$allpeople}</li>
+        <li><button type="" class="btn btn-default" id="suremod">确认修改</button></li>
+    <li><input id='id' name="id" type="hidden" value="{$modelid}"/></li>
+    </ul>
+
+</form>
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.js"></script>
+<script src="__ROOT__/library/layer/layer.js"></script>
+<script>
+    $("#groupid").change(function(){
+        var groupid=$(this).val();
+        $.post("{:U('Model/showpeople')}",{groupid:groupid},function(result){
+            $('#people').html(result);
+        });
+    });
+</script>
